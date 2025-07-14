@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+header, footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+}
+header .logo {
+  height: 40px;
+  vertical-align: middle;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+#chat-container form {
+  display: flex;
+  margin-bottom: 1rem;
+}
+#chat-container input, #chat-container button {
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+#chat-container input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+#chat-container button {
+  background: #ccb988;
+  border: none;
+  cursor: pointer;
+}
+#response {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  flex: 1;
+  overflow-y: auto;
+}
