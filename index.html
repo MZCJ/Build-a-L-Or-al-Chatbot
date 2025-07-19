@@ -2,26 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L'Oréal Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>L'Oréal Routine Builder Chatbot</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <img src="loreal-logo.png" alt="L'Oréal Logo" class="logo">
-    <h1>L'Oréal Smart Routine & Product Advisor</h1>
+    <h1>L'Oréal Product-Aware Routine Builder</h1>
   </header>
-  <main id="chat-container">
-    <form id="chatForm">
-      <input type="text" id="userInput" placeholder="Ask me about L'Oréal products or routines...">
-      <button type="submit">Send</button>
-    </form>
-    <div id="response"></div>
+  <main>
+    <section id="product-selector">
+      <label for="categoryFilter">Filter by Category:</label>
+      <select id="categoryFilter">
+        <option value="全部">全部</option>
+      </select>
+      <div id="productGrid"></div>
+      <h2>Selected Products</h2>
+      <ul id="selectedList"></ul>
+      <button id="generateBtn">生成 Routine</button>
+    </section>
+    <section id="chat">
+      <form id="chatForm">
+        <input type="text" id="userInput" placeholder="Ask follow-up questions...">
+        <button type="submit">Send</button>
+      </form>
+      <div id="response"></div>
+    </section>
   </main>
   <footer>
     <p>&copy; 2025 L'Oréal</p>
   </footer>
-  <!-- Load secrets first, then script -->
   <script src="secrets.js"></script>
   <script src="script.js"></script>
 </body>

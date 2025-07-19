@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Revitalift Day Cream", "brand": "L'Oréal Paris", "category": "护肤", "description": "保湿抗皱日霜，有效滋润肌肤和减少细纹。" },
+  { "id": 2, "name": "True Match Foundation", "brand": "L'Oréal Paris", "category": "彩妆", "description": "轻薄贴合肤色的粉底液，遮瑕自然。" },
+  { "id": 3, "name": "Elvive Hair Mask", "brand": "L'Oréal Paris", "category": "护发", "description": "深层修复受损发质，增强光泽柔顺。" }
+]

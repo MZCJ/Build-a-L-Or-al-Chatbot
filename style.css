@@ -1,6 +1,5 @@
 body {
   font-family: Arial, sans-serif;
-  background: #fafafa;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -19,31 +18,86 @@ header .logo {
 main {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 1rem;
+  gap: 1rem;
 }
-#chat-container form {
-  display: flex;
-  margin-bottom: 1rem;
-}
-#chat-container input, #chat-container button {
-  padding: 0.75rem;
-  font-size: 1rem;
-}
-#chat-container input {
+#product-selector {
   flex: 1;
+  max-width: 300px;
+}
+#productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+.product-card {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.product-card.selected {
+  border-color: #e3a535;
+  background: #fff8e1;
+}
+#selectedList {
+  list-style: none;
+  padding: 0;
+}
+#selectedList li {
+  margin: 0.25rem 0;
+  cursor: pointer;
+}
+#generateBtn {
+  background: #ccb988;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+#chat {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+#chat form {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+#chat input {
+  flex: 1;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-right: none;
 }
-#chat-container button {
+#chat button {
+  padding: 0.5rem;
   background: #ccb988;
   border: none;
   cursor: pointer;
 }
 #response {
-  background: #fff;
-  padding: 1rem;
-  border: 1px solid #ddd;
   flex: 1;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
   overflow-y: auto;
+  background: #fff;
+}
+.user-bubble, .bot-bubble {
+  max-width: 70%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+.user-bubble {
+  background: #ccb988;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+.bot-bubble {
+  background: #eee;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
 }

@@ -1,29 +1,29 @@
-# L'Oréal Chatbot
+# L'Oréal Product-Aware Routine Builder Chatbot
 
-A simple branded chatbot that uses OpenAI's Chat Completions API via a secured Cloudflare Worker.
+## 文件说明
+- `index.html`：主页面，包含产品选择区和聊天区
+- `style.css`：样式
+- `products.json`：示例产品数据
+- `secrets.js`：Cloudflare Worker 地址配置
+- `script.js`：前端逻辑：产品管理与 AI 对话
+- `worker.js`：Cloudflare Worker 脚本，代理 OpenAI API
 
-## Setup
+## 快速上手
 
-1. **Logo**  
-   Place `loreal-logo.png` in the project root.
+1. **配置 Worker 地址**  
+   编辑 `secrets.js`，将 `WORKER_ENDPOINT` 改为你的 Worker URL。
 
-2. **Secrets**  
-   Rename/edit `secrets.js` and set your Cloudflare Worker endpoint URL:
-   ```js
-   const WORKER_ENDPOINT = 'https://<YOUR_WORKER_SUBDOMAIN>.workers.dev';
-   ```
+2. **部署 Cloudflare Worker**  
+   - 登录 Cloudflare → Workers → 新建或更新 Worker  
+   - 粘贴 `worker.js`  
+   - 在 Variables & Secrets 添加 `OPENAI_API_KEY`  
 
-3. **Deploy Cloudflare Worker**  
-   - Upload `worker.js` to Cloudflare Workers.  
-   - In Worker settings, add a secret binding:
-     ```
-     Name: OPENAI_API_KEY
-     Value: <Your OpenAI API key>
-     ```  
-   - Deploy the Worker.
+3. **部署前端**  
+   - 将所有文件（含 `loreal-logo.png`）上传到静态托管。  
+   - 确保 `products.json` 在相对路径可访问。
 
-4. **Host the Frontend**  
-   Host `index.html`, `style.css`, `script.js`, and `secrets.js` on a static server (e.g., GitHub Pages).
+4. **使用**  
+   - 选中产品  
+   - 点击“生成 Routine”  
+   - 在对话框追问，AI 会记住上下文继续回答。  
 
-5. **Chat!**  
-   Open `index.html` in your browser and start asking about L'Oréal products.
