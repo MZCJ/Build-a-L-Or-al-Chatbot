@@ -1,39 +1,44 @@
-// script.js
+// Load products and initialize UI
+let allProducts = [];
+let selected = JSON.parse(localStorage.getItem('selected')) || [];
 const searchInput = document.getElementById('searchInput');
 const categoryFilter = document.getElementById('categoryFilter');
 const productGrid = document.getElementById('productGrid');
-const showMore = document.getElementById('showMore');
-const generateBtn = document.getElementById('generateBtn');
 const selectedList = document.getElementById('selectedList');
-const chatWindow = document.getElementById('chatWindow');
-const followupInput = document.getElementById('followupInput');
-const followupBtn = document.getElementById('followupBtn');
 
-let allProducts = [];
-let selected = JSON.parse(localStorage.getItem('selected')) || [];
-let messages = [];
-
-// Load products
 fetch('products.json')
-  .then(res => res.json())
+  .then(r => r.json())
   .then(data => {
     allProducts = data;
-    filterAndRender();
+    populateCategories();
+    renderGrid(allProducts);
     renderSelected();
   });
 
-// Search and filter
-searchInput.addEventListener('input', filterAndRender);
-categoryFilter.addEventListener('change', filterAndRender);
+function populateCategories() {
+  const cats = ['All', ...new Set(allProducts.map(p => p.category))];
+  cats.forEach(cat => {
+    const opt = document.createElement('option');
+    opt.value = cat;
+    opt.textContent = cat;
+    categoryFilter.appendChild(opt);
+  });
+}
+
+searchInput.addEventListener('input', () => {
+  filterAndRender();
+});
+categoryFilter.addEventListener('change', () => {
+  filterAndRender();
+});
 
 function filterAndRender() {
-  const term = searchInput.value.toLowerCase();
-  const category = categoryFilter.value;
-  const filtered = allProducts.filter(p => {
-    const matchTerm = p.name.toLowerCase().includes(term);
-    const matchCat = category === 'All' || p.category === category;
-    return matchTerm && matchCat;
-  });
+  const q = searchInput.value.toLowerCase();
+  const cat = categoryFilter.value;
+  const filtered = allProducts.filter(p =>
+    (p.name.toLowerCase().includes(q)) &&
+    (cat === 'All' || p.category === cat)
+  );
   renderGrid(filtered);
 }
 
@@ -47,21 +52,18 @@ function renderGrid(list) {
       <h3>${p.name}</h3>
       <p>${p.category}</p>
     `;
-    card.addEventListener('click', () => {
+    card.onclick = () => {
       toggleSelect(p.id);
-      filterAndRender();
+      renderGrid(list);
       renderSelected();
-    });
+    };
     productGrid.appendChild(card);
   });
 }
 
 function toggleSelect(id) {
-  if (selected.includes(id)) {
-    selected = selected.filter(x => x !== id);
-  } else {
-    selected.push(id);
-  }
+  if (selected.includes(id)) selected = selected.filter(x => x !== id);
+  else selected.push(id);
   localStorage.setItem('selected', JSON.stringify(selected));
 }
 
@@ -71,64 +73,67 @@ function renderSelected() {
     const p = allProducts.find(x => x.id === id);
     const li = document.createElement('li');
     li.textContent = p.name;
-    li.addEventListener('click', () => {
+    li.onclick = () => {
       toggleSelect(id);
-      filterAndRender();
+      renderGrid(allProducts);
       renderSelected();
-    });
+    };
     selectedList.appendChild(li);
   });
 }
 
-// Generate routine
-generateBtn.addEventListener('click', async () => {
-  if (selected.length === 0) {
-    alert('Please select at least one product.');
-    return;
-  }
-  const productsInfo = selected.map(id => {
-    const { name, category, description } = allProducts.find(x => x.id === id);
-    return `${name} (${category}): ${description}`;
-  }).join('\n');
+// Generate Routine
+const generateBtn = document.getElementById('generateBtn');
+const chatWindow = document.getElementById('chatWindow');
+const followupInput = document.getElementById('followupInput');
+const followupBtn = document.getElementById('followupBtn');
+let messages = [];
+
+generateBtn.onclick = async () => {
+  if (selected.length === 0) return alert('Please select products first.');
+  const selectedInfo = selected.map(id => {
+    const { name, brand, category, description } = allProducts.find(x => x.id === id);
+    return { name, brand, category, description };
+  });
   messages = [
-    { role: 'system', content: "You are a L'Oréal expert. Based on the selected products, create a skincare routine." },
-    { role: 'user', content: `Please create a skincare routine using these products:\n${productsInfo}` }
+    { role: 'system', content: 'You are a L’Oréal expert. Create a routine using these products only.' },
+    { role: 'user', content: `Please create a skincare routine for me using these products: ${JSON.stringify(selectedInfo)}` }
   ];
   chatWindow.innerHTML = '';
-  displayMessage('bot', 'Loading…');
-  const response = await callWorker(messages);
-  chatWindow.innerHTML = '';
-  displayMessage('bot', response);
-});
+  await callWorker(messages);
+};
 
-// Follow-up questions
-followupBtn.addEventListener('click', async () => {
+followupBtn.onclick = async () => {
   const q = followupInput.value.trim();
   if (!q) return;
-  displayMessage('user', q);
   messages.push({ role: 'user', content: q });
   followupInput.value = '';
-  displayMessage('bot', '…');
-  const response = await callWorker(messages);
-  const loading = chatWindow.querySelector('.msg.bot:last-child');
-  if (loading) loading.remove();
-  displayMessage('bot', response);
-});
-
-function displayMessage(sender, text) {
-  const div = document.createElement('div');
-  div.className = 'msg ' + sender;
-  div.textContent = text;
-  chatWindow.appendChild(div);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-}
+  await callWorker(messages);
+};
 
 async function callWorker(msgs) {
-  const res = await fetch(WORKER_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages: msgs })
+  chatWindow.innerHTML = '<p>Loading…</p>';
+  try {
+    const res = await fetch(WORKER_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: msgs })
+    });
+    const data = await res.json();
+    const reply = data.choices?.[0]?.message?.content || 'No response.';
+    messages.push({ role: 'assistant', content: reply });
+    displayChat();
+  } catch (e) {
+    console.error(e);
+    chatWindow.innerHTML = '<p>Error fetching response.</p>';
+  }
+}
+
+function displayChat() {
+  chatWindow.innerHTML = '';
+  messages.forEach(m => {
+    const p = document.createElement('p');
+    p.textContent = m.content;
+    chatWindow.appendChild(p);
   });
-  const data = await res.json();
-  return data.choices?.[0]?.message?.content || 'Error fetching response.';
 }

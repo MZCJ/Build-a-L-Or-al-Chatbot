@@ -7,39 +7,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Top bar with logo and title -->
   <header class="topbar">
-    <img src="loreal-logo.png" alt="L'Oréal Logo" class="logo">
-    <h1>Routine Builder</h1>
+    <img src="loreal-logo.png" alt="L'Oréal" class="logo">
+    <h1>L'Oréal Routine Builder</h1>
   </header>
 
   <main>
-    <!-- Search and category filter -->
     <div class="controls">
       <input type="text" id="searchInput" placeholder="Search products…">
       <select id="categoryFilter">
         <option value="All">All Categories</option>
-        <!-- other categories -->
       </select>
     </div>
 
-    <!-- Product grid -->
     <div id="productGrid" class="grid"></div>
     <a href="#" id="showMore">Show More Products</a>
 
-    <!-- Selected Products and Generate Routine -->
     <section class="selected-section">
       <h2>Selected Products</h2>
       <button id="generateBtn" class="btn-red">Generate Routine</button>
       <ul id="selectedList" class="selected-list"></ul>
     </section>
 
-    <!-- Chat card -->
     <section class="chat-card">
       <header>About Your Routine</header>
-      <div id="chatWindow" class="chat-window">
-        <!-- Chat messages appear here -->
-      </div>
+      <div id="chatWindow" class="chat-window"></div>
       <div class="chat-input">
         <input type="text" id="followupInput" placeholder="Ask about your routine…">
         <button id="followupBtn" class="send-btn">✈︎</button>
