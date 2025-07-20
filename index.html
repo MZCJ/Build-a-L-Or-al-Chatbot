@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>L'Oréal Product-Aware Routine Builder</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
     <img src="loreal-logo.png" alt="L'Oréal" class="logo">
-    <h1>L'Oréal Routine Builder</h1>
+    <h1>Routine Builder</h1>
   </header>
-
   <main>
     <div class="controls">
       <input type="text" id="searchInput" placeholder="Search products…">
@@ -19,16 +18,13 @@
         <option value="All">All Categories</option>
       </select>
     </div>
-
     <div id="productGrid" class="grid"></div>
     <a href="#" id="showMore">Show More Products</a>
-
     <section class="selected-section">
       <h2>Selected Products</h2>
       <button id="generateBtn" class="btn-red">Generate Routine</button>
       <ul id="selectedList" class="selected-list"></ul>
     </section>
-
     <section class="chat-card">
       <header>About Your Routine</header>
       <div id="chatWindow" class="chat-window"></div>
@@ -38,9 +34,7 @@
       </div>
     </section>
   </main>
-
   <footer>© 2025 L'Oréal. All rights reserved.</footer>
-
   <script src="secrets.js"></script>
   <script src="script.js"></script>
 </body>
