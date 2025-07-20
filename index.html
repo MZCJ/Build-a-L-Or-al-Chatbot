@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>L'Oréal Routine Builder Chatbot</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>L'Oréal Routine Builder</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <img src="loreal-logo.png" alt="L'Oréal Logo" class="logo">
-    <h1>L'Oréal Product-Aware Routine Builder</h1>
+  <header class="topbar">
+    <img src="loreal-logo.png" alt="L'Oréal" class="logo"/>
+    <h1>Routine Builder</h1>
   </header>
   <main>
-    <section id="product-selector">
-      <label for="categoryFilter">Filter by Category:</label>
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="Search products…"/>
       <select id="categoryFilter">
-        <option value="全部">全部</option>
+        <option value="全部">All Categories</option>
       </select>
-      <div id="productGrid"></div>
+    </div>
+    <div id="productGrid" class="grid"></div>
+    <a href="#" id="showMore">Show More Products</a>
+    <section class="selected-section">
       <h2>Selected Products</h2>
-      <ul id="selectedList"></ul>
-      <button id="generateBtn">生成 Routine</button>
+      <button id="generateBtn" class="btn-red">Generate Routine</button>
+      <ul id="selectedList" class="selected-list"></ul>
     </section>
-    <section id="chat">
-      <form id="chatForm">
-        <input type="text" id="userInput" placeholder="Ask follow-up questions...">
-        <button type="submit">Send</button>
-      </form>
-      <div id="response"></div>
+    <section class="chat-card">
+      <header>About Your Routine</header>
+      <div id="chatWindow" class="chat-window"></div>
+      <div class="chat-input">
+        <input type="text" id="followupInput" placeholder="Ask about your routine…"/>
+        <button id="followupBtn" class="send-btn">✈︎</button>
+      </div>
     </section>
   </main>
-  <footer>
-    <p>&copy; 2025 L'Oréal</p>
-  </footer>
+  <footer>© 2025 L'Oréal. All rights reserved.</footer>
   <script src="secrets.js"></script>
   <script src="script.js"></script>
 </body>
