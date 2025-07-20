@@ -1,4 +1,4 @@
-/* 顶部 */
+/* Top bar */
 .topbar {
   display: flex;
   align-items: center;
@@ -10,14 +10,14 @@
   margin-right: 1rem;
 }
 .topbar h1 {
-  color: #000;
-  font-size: 2rem;
   margin: 0;
   flex: 1;
   text-align: center;
+  color: #000;
+  font-size: 2rem;
 }
 
-/* 控件区 */
+/* Controls */
 .controls {
   display: flex;
   justify-content: space-between;
@@ -37,7 +37,7 @@
   border-radius: 4px;
 }
 
-/* 产品网格 */
+/* Product grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -60,7 +60,7 @@
   background: #fff5f5;
 }
 
-/* Show More 链接 */
+/* Show More link */
 #showMore {
   display: block;
   text-align: center;
@@ -69,7 +69,7 @@
   color: #000;
 }
 
-/* 已选产品区 */
+/* Selected section */
 .selected-section {
   padding: 1rem;
 }
@@ -94,13 +94,15 @@
   cursor: pointer;
 }
 
-/* 聊天卡片 */
+/* Chat card */
 .chat-card {
   border: 1px solid #ccc;
   border-radius: 8px;
   max-width: 800px;
   margin: 2rem auto;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .chat-card > header {
@@ -112,7 +114,9 @@
 .chat-window {
   background: #fff;
   padding: 1rem;
-  min-height: 200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .chat-input {
   display: flex;
@@ -131,7 +135,24 @@
   cursor: pointer;
 }
 
-/* 页脚 */
+/* Message bubbles */
+.msg {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  max-width: 70%;
+}
+.msg.user {
+  background: #e31b23;
+  color: #fff;
+  align-self: flex-end;
+}
+.msg.bot {
+  background: #f1f1f1;
+  align-self: flex-start;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;

@@ -1,61 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>L'Oréal Product-Aware Routine Builder</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Top bar with logo and title -->
   <header class="topbar">
-    <img src="loreal-logo.png" alt="L'Oréal Logo" class="logo"/>
+    <img src="loreal-logo.png" alt="L'Oréal Logo" class="logo">
     <h1>Routine Builder</h1>
   </header>
 
   <main>
     <!-- Search and category filter -->
     <div class="controls">
-      <input type="text" id="searchInput" placeholder="Search products…" />
+      <input type="text" id="searchInput" placeholder="Search products…">
       <select id="categoryFilter">
-        <option value="all">All Categories</option>
-        <option value="skincare">Skincare</option>
-        <option value="makeup">Makeup</option>
-        <option value="haircare">Haircare</option>
-        <option value="fragrance">Fragrance</option>
+        <option value="All">All Categories</option>
+        <!-- other categories -->
       </select>
     </div>
 
     <!-- Product grid -->
     <div id="productGrid" class="grid"></div>
-    <a href="#" id="showMore" class="show-more">Show More Products</a>
+    <a href="#" id="showMore">Show More Products</a>
 
-    <!-- Selected products and generate button -->
+    <!-- Selected Products and Generate Routine -->
     <section class="selected-section">
       <h2>Selected Products</h2>
       <button id="generateBtn" class="btn-red">Generate Routine</button>
       <ul id="selectedList" class="selected-list"></ul>
     </section>
 
-    <!-- Chat card for routine follow-ups -->
+    <!-- Chat card -->
     <section class="chat-card">
       <header>About Your Routine</header>
-      <div id="chatWindow" class="chat-window"></div>
+      <div id="chatWindow" class="chat-window">
+        <!-- Chat messages appear here -->
+      </div>
       <div class="chat-input">
-        <input
-          type="text"
-          id="followupInput"
-          placeholder="Ask about your routine…"
-        />
+        <input type="text" id="followupInput" placeholder="Ask about your routine…">
         <button id="followupBtn" class="send-btn">✈︎</button>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>© 2025 L'Oréal. All rights reserved.</footer>
 
-  <!-- Scripts: load secrets first, then main logic -->
   <script src="secrets.js"></script>
   <script src="script.js"></script>
 </body>
