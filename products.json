@@ -1,5 +1,42 @@
 [
-  { "id": 1, "name": "Revitalift Day Cream", "brand": "L'Oréal Paris", "category": "护肤", "description": "保湿抗皱日霜，有效滋润肌肤和减少细纹。" },
-  { "id": 2, "name": "True Match Foundation", "brand": "L'Oréal Paris", "category": "彩妆", "description": "轻薄贴合肤色的粉底液，遮瑕自然。" },
-  { "id": 3, "name": "Elvive Hair Mask", "brand": "L'Oréal Paris", "category": "护发", "description": "深层修复受损发质，增强光泽柔顺。" }
+  {
+    "id": 1,
+    "name": "Revitalift Day Cream SPF35 PA++",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Skincare",
+    "description": "Anti-aging day cream with Dermalift Technology and Pro-Retinol A. SPF35 protection.",
+    "image": "https://www.loreal-paris.com.sg/-/media/project/loreal/brand-sites/oap/apac/sg/local-products1/skincare/revitalift/pro-retinol-day-cream-spf35/8992304017827_packshot_v2.png"
+  },
+  {
+    "id": 2,
+    "name": "Elvive Total Repair 5 Shampoo",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Haircare",
+    "description": "Repairing shampoo that fights the 5 signs of damaged hair with Protein and Ceramide.",
+    "image": "https://www.loreal-paris-me.com/-/media/project/loreal/brand-sites/oap/emea/mena/products/hair/hair-care/total-repair/shampoo/visualisation-elvive-enar_shamp-tr5-min.jpg"
+  },
+  {
+    "id": 3,
+    "name": "True Match Liquid Foundation 0.5N Porcelain",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Makeup",
+    "description": "Medium-coverage foundation with hyaluronic acid for a natural, skin-like finish.",
+    "image": "https://www.lorealparis.com.au/-/media/project/loreal/brand-sites/oap/apac/au/products/makeup/face-makeup/true-match/liquid-foundation/new-images/packshot/05n__pack_closed_front.png"
+  },
+  {
+    "id": 4,
+    "name": "Revitalift Pure Retinol Night Serum",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Skincare",
+    "description": "Night serum with pure retinol and centella asiatica to renew skin overnight.",
+    "image": "https://via.placeholder.com/200?text=Revitalift+Serum"
+  },
+  {
+    "id": 5,
+    "name": "Elvive Dream Lengths Conditioner",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Haircare",
+    "description": "Conditioner enriched with castor oil to strengthen and smooth long hair.",
+    "image": "https://via.placeholder.com/200?text=Dream+Lengths"
+  }
 ]
