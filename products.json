@@ -1,8 +1,50 @@
 [
-  {"id":1,"name":"Revitalift Day Cream","brand":"L'Oréal","category":"Skincare","description":"Hydrating anti-wrinkle day cream.","image":"https://example.com/images/revitalift-day-cream.jpg"},
-  {"id":2,"name":"True Match Foundation","brand":"L'Oréal","category":"Makeup","description":"Lightweight liquid foundation.","image":"https://example.com/images/true-match-foundation.jpg"},
-  {"id":3,"name":"Elvive Hair Mask","brand":"L'Oréal","category":"Haircare","description":"Deep conditioning hair mask.","image":"https://example.com/images/elvive-hair-mask.jpg"},
-  {"id":4,"name":"Pure-Clay Face Mask","brand":"L'Oréal","category":"Skincare","description":"Detoxifying pure clay mask.","image":"https://example.com/images/pure-clay-mask.jpg"},
-  {"id":5,"name":"Infallible Lipstick","brand":"L'Oréal","category":"Makeup","description":"Long-lasting matte lipstick.","image":"https://example.com/images/infallible-lipstick.jpg"},
-  {"id":6,"name":"Elvive Shampoo","brand":"L'Oréal","category":"Haircare","description":"Strengthening shampoo.","image":"https://example.com/images/elvive-shampoo.jpg"}
+  {
+    "id": 1,
+    "name": "Revitalift Day Cream",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Skincare",
+    "description": "A moisturizing day cream that firms and hydrates skin.",
+    "image": "images/revitalift_day_cream.png"
+  },
+  {
+    "id": 2,
+    "name": "True Match Foundation",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Makeup",
+    "description": "A liquid foundation that matches your skin tone flawlessly.",
+    "image": "images/true_match_foundation.png"
+  },
+  {
+    "id": 3,
+    "name": "Elvive Hair Mask",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Haircare",
+    "description": "A deep conditioning mask that restores hair strength.",
+    "image": "images/elvive_hair_mask.png"
+  },
+  {
+    "id": 4,
+    "name": "Garnier Micellar Water",
+    "brand": "Garnier",
+    "category": "Skincare",
+    "description": "A gentle makeup remover that cleanses and soothes skin.",
+    "image": "images/garnier_micellar_water.png"
+  },
+  {
+    "id": 5,
+    "name": "Lanc\u00f4me La Vie Est Belle Perfume",
+    "brand": "Lanc\u00f4me",
+    "category": "Fragrance",
+    "description": "A floral fragrance that celebrates joy and freedom.",
+    "image": "images/lavie_est_belle.png"
+  },
+  {
+    "id": 6,
+    "name": "Casting Cr\u00e8me Gloss",
+    "brand": "L'Or\u00e9al Paris",
+    "category": "Hair Color",
+    "description": "A color-depositing gloss that adds shine and tone.",
+    "image": "images/casting_creme_gloss.png"
+  }
 ]
